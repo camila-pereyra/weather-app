@@ -2,7 +2,7 @@ import "./CurrentWeatherReport.css"
 
 const CurrentWeatherReport = () => {
   return (
-    <div>CurrentWeatherReport</div>
+    <div className="currentReport">CurrentWeatherReport</div>
   )
 }
 

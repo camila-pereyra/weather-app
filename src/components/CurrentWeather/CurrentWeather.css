@@ -1,0 +1,20 @@
+.currentWeather{
+    width: 50%;
+    text-align: center;
+    color:white;
+    font-size: 50px;
+}
+
+.data{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dataImg{
+    width: 50%;
+}
+.dataInfo{
+    width: 50%;
+    font-size: 30px;
+}

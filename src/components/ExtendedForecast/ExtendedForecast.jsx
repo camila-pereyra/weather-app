@@ -3,7 +3,7 @@ import CardDay from "../CardDay/CardDay"
 
 const ExtendedForecast = () => {
   return (
-    <div>ExtendedForecast
+    <div className="extendedForecast">ExtendedForecast
       <CardDay/>
     </div>
   )

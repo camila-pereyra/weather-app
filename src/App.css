@@ -5,5 +5,11 @@
 }
 
 .App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,175,253,1) 100%);
 }

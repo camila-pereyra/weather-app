@@ -2,14 +2,52 @@ import "./Container.css"
 import CurrentWeather from "../CurrentWeather/CurrentWeather"
 import CurrentWeatherReport from "../CurrentWeatherReport/CurrentWeatherReport"
 import ExtendedForecast from "../ExtendedForecast/ExtendedForecast"
+import { useState } from "react"
+import City from "../City/City"
 
 const Container = () => {
+  const [input,setInput]=useState("")
+  const [cities,setCities]=useState([])
+  const API_URL=`http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
+
+   const onChange = (e)=>{
+    setInput(e.target.value);
+   }
+
+   const handleClick = (e)=>{
+    e.preventDefault();
+    if(input!==""){
+      fetch(API_URL).then(response=>response.json())
+      .then(data=> {
+        data.forEach(element => {
+          console.log(element);
+          setCities([cities.push(element) ])})
+       })
+    }
+  }
+    
+
   return (
-    <div>
-      <CurrentWeather/>
-      <CurrentWeatherReport/>
-      <ExtendedForecast/>
+    <>
+    <div className="container">
+      <div className="containerInput">
+        <input type="text" name="nameCity" id="nameCity" placeholder="Enter a city" value={input} onChange={onChange}/>
+        <button type="button" onClick={handleClick}>Buscar</button>
+      </div> 
+      <div className="containerCities">
+        <City cities={cities}/>
+      </div>
+      <div className="containerCurrentWeather">
+        <CurrentWeather/>
+        <CurrentWeatherReport/>
+      </div>
+      <div className="containerExtendedForecast">
+        <ExtendedForecast/>
+      </div>
     </div>
+      
+    </>
+    
   )
 }
 
