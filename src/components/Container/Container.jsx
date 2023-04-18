@@ -3,7 +3,8 @@ import CurrentWeather from "../CurrentWeather/CurrentWeather"
 import CurrentWeatherReport from "../CurrentWeatherReport/CurrentWeatherReport"
 import ExtendedForecast from "../ExtendedForecast/ExtendedForecast"
 import { useState } from "react"
-import City from "../City/City"
+import ListCity from "../ListCity/ListCity"
+import {FaSearchLocation} from "react-icons/fa";
 
 const Container = () => {
   const [input,setInput]=useState("")
@@ -16,14 +17,14 @@ const Container = () => {
 
    const handleClick = (e)=>{
     e.preventDefault();
-    if(input!==""){
+    if(input!=="" ){
       fetch(API_URL).then(response=>response.json())
-      .then(data=> {
-        data.forEach(element => {
-          console.log(element);
-          setCities([cities.push(element) ])})
-       })
+      .then(data=> { setCities(data)})
     }
+    setInput("")
+  }
+  const onClickCity = (lat,lon)=>{
+    console.log(lat,lon);
   }
     
 
@@ -32,11 +33,14 @@ const Container = () => {
     <div className="container">
       <div className="containerInput">
         <input type="text" name="nameCity" id="nameCity" placeholder="Enter a city" value={input} onChange={onChange}/>
-        <button type="button" onClick={handleClick}>Buscar</button>
+        <FaSearchLocation className="iconSearch" onClick={handleClick}/>
       </div> 
-      <div className="containerCities">
-        <City cities={cities}/>
-      </div>
+      
+        <div className="containerCities">
+          <ListCity cities={cities} onClickCity={onClickCity} /> 
+        </div>
+      
+      
       <div className="containerCurrentWeather">
         <CurrentWeather/>
         <CurrentWeatherReport/>
