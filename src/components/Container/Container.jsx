@@ -1,7 +1,5 @@
 import "./Container.css"
 import CurrentWeather from "../CurrentWeather/CurrentWeather"
-import CurrentWeatherReport from "../CurrentWeatherReport/CurrentWeatherReport"
-import ExtendedForecast from "../ExtendedForecast/ExtendedForecast"
 import { useState } from "react"
 import ListCity from "../ListCity/ListCity"
 import {FaSearchLocation} from "react-icons/fa";
@@ -9,6 +7,8 @@ import {FaSearchLocation} from "react-icons/fa";
 const Container = () => {
   const [input,setInput]=useState("")
   const [cities,setCities]=useState([])
+  const [lat, setLat]=useState()
+  const [lon,setLon]=useState()
   const API_URL=`http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
 
    const onChange = (e)=>{
@@ -24,7 +24,8 @@ const Container = () => {
     setInput("")
   }
   const onClickCity = (lat,lon)=>{
-    console.log(lat,lon);
+    setLat(lat)
+    setLon(lon)
   }
     
 
@@ -40,14 +41,9 @@ const Container = () => {
           <ListCity cities={cities} onClickCity={onClickCity} /> 
         </div>
       
+      {lat!==undefined && lon!==undefined && (<CurrentWeather lat={lat} lon={lon}/>)}
       
-      <div className="containerCurrentWeather">
-        <CurrentWeather/>
-        <CurrentWeatherReport/>
-      </div>
-      <div className="containerExtendedForecast">
-        <ExtendedForecast/>
-      </div>
+      
     </div>
       
     </>

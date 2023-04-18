@@ -1,8 +1,9 @@
 .currentWeather{
-    width: 50%;
+    width: 100%;
     text-align: center;
     color:white;
-    font-size: 50px;
+    font-size: 80px;
+
 }
 
 .data{
@@ -10,11 +11,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    font-size: 30px;
+
 }
-.dataImg{
+.dataIcon{
     width: 50%;
 }
 .dataInfo{
     width: 50%;
-    font-size: 30px;
+    font-size: 40px;
+
 }
