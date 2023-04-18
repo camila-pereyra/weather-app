@@ -1,8 +1,4 @@
 .listCities{
     width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    padding: 20px 0 0 0;
 }

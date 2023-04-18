@@ -1,4 +1,9 @@
 import { useEffect, useState } from "react"
+import {WiHumidity} from "react-icons/wi"
+import {FaWind} from "react-icons/fa"
+import {MdOutlineVisibility} from "react-icons/md"
+import {CiTempHigh} from "react-icons/ci"
+import {VscPerson} from "react-icons/vsc"
 import "./CurrentWeather.css"
 
 const CurrentWeather = ({lat,lon}) => {
@@ -24,7 +29,7 @@ const CurrentWeather = ({lat,lon}) => {
       setHumidity(data.main.humidity)
       setSensationTer(data.main.feels_like)
       setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`)
-      setVisibility(data.visibility/1000)
+      setVisibility((data.visibility/1000).toFixed(0))
       setWind((data.wind.speed*3.6).toFixed(2))
     })))
 
@@ -34,18 +39,18 @@ const CurrentWeather = ({lat,lon}) => {
   
   return (
     <div className="currentWeather">
-       <p>{city}</p>
+       <p className="nameCity">{city}</p>
       <div className="data">
         <div className="dataIcon">
-          <p>{weatherCondition}</p>
           <img src={weatherIcon} alt="iconWeather" />
+          <p>{weatherCondition}</p>
         </div>
         <div className="dataInfo"> 
-          <p>Temperatura: {temp}°C</p>
-          <p>Sensación Térmica: {sensationTerm}°C</p>
-          <p>Humedad: {humidity}%</p>
-          <p>Visibilidad: {visibility} km</p>
-          <p>Viento: {wind} km/h</p>
+          <div><CiTempHigh/>Temperature: {temp}°C</div>
+          <div><VscPerson/>Thermal Sensation: {sensationTerm}°C</div>
+          <div><WiHumidity/>Humidity: {humidity}% </div>
+          <div><MdOutlineVisibility/>Visibility: {visibility} km</div>
+          <div><FaWind/>Wind: {wind} km/h</div>
         </div>        
       </div>
     </div>

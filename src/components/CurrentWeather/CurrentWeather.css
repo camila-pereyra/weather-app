@@ -2,24 +2,32 @@
     width: 100%;
     text-align: center;
     color:white;
-    font-size: 80px;
-
+    padding: 20px;
 }
-
+.currentWeather .nameCity{
+    font-size: 80px;
+    padding-bottom: 30px;
+}
 .data{
-    width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 30px;
 
 }
 .dataIcon{
-    width: 50%;
+    font-size: 30px;
 }
 .dataInfo{
-    width: 50%;
     font-size: 40px;
-
+}
+.dataInfo div{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dataInfo div svg{
+    margin-right: 10px;
 }

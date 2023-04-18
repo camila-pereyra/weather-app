@@ -4,11 +4,12 @@ import "./City.css"
 const City = ({name,state, lat, lon, onClickCity}) => {
   
   return (
-    <button className="city"  onClick={() => {
+    <button className="cityButton"  onClick={() => {
       onClickCity(lat,lon);
     }}>
-      <BsFillGeoAltFill />{name}, {state} 
-      </button> 
+      <BsFillGeoAltFill className="iconGeo"/>
+      <span>{name}, {state}</span>
+    </button> 
   )
 }
 

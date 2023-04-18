@@ -32,16 +32,20 @@ const Container = () => {
   return (
     <>
     <div className="container">
-      <div className="containerInput">
-        <input type="text" name="nameCity" id="nameCity" placeholder="Enter a city" value={input} onChange={onChange}/>
-        <FaSearchLocation className="iconSearch" onClick={handleClick}/>
-      </div> 
-      
-        <div className="containerCities">
-          <ListCity cities={cities} onClickCity={onClickCity} /> 
+      <div className="containerSearch">
+        <div className="inputSearch">
+          <input type="text" name="nameCity" id="nameCity" placeholder="Enter a city" value={input} onChange={onChange}/>
+            <FaSearchLocation className="iconSearch" onClick={handleClick}/>
         </div>
+        <ListCity cities={cities} onClickCity={onClickCity} /> 
+        
+        
+        
+      </div> 
+      <div className="containerCurrent">
+        {lat!==undefined && lon!==undefined && (<CurrentWeather lat={lat} lon={lon}/>)}
+      </div>
       
-      {lat!==undefined && lon!==undefined && (<CurrentWeather lat={lat} lon={lon}/>)}
       
       
     </div>

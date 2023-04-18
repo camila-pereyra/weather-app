@@ -1,3 +1,26 @@
-.city{
-    margin:10px;
-}
+.cityButton{
+    width: 100%;
+    margin: 15px 0;
+    text-align: left;
+    padding: 10px;
+    font-size: 15px;
+    color: black;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+    transition: all 0.2s ease-in-out;
+ }
+ .cityButton:hover{
+    color: #8d8d8d;
+    transform: scale(1.05,1.05);
+ }
+ .cityButton .iconGeo{
+    width: 2em;
+    height: 2em;
+    color: rgb(184, 0, 0);
+ }
+ .cityButton span{
+    margin-left: 10px;
+    font-size: 20px;
+ }
