@@ -15,14 +15,18 @@ const CurrentWeather = ({lat,lon}) => {
   const [visibility,setVisibility]=useState()
   const [humidity,setHumidity]=useState("")
   const [wind,setWind]=useState()
+  const [load, setLoad] = useState (false)
+
+
+
 
   const API_url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&&units=metric&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
 
   useEffect(() => {
+    setLoad(true)
     fetch(API_url)
     .then(response=>console.log(response.json()
     .then(data => {
-      console.log(data);
       setCity(data.name)
       setWeatherCondition(data.weather[0].main)
       setTemp(data.main.temp)
@@ -32,13 +36,15 @@ const CurrentWeather = ({lat,lon}) => {
       setVisibility((data.visibility/1000).toFixed(0))
       setWind((data.wind.speed*3.6).toFixed(2))
     })))
-
+    setTimeout(()=>setLoad(false),2500) 
+ 
   }, [API_url]) 
   
 
   
   return (
-    <div className="currentWeather">
+     load ? (<div className="spinner"></div>) :
+    (<div className="currentWeather">
        <p className="nameCity">{city}</p>
       <div className="data">
         <div className="dataIcon">
@@ -53,7 +59,7 @@ const CurrentWeather = ({lat,lon}) => {
           <div><FaWind/>Wind: {wind} km/h</div>
         </div>        
       </div>
-    </div>
+    </div>) 
   )
 }
 
