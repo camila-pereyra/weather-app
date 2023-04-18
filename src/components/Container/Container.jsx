@@ -11,7 +11,7 @@ const Container = () => {
   const [lon,setLon]=useState()
   const [search,setSearch]=useState(false)
   const [citySelect,setCitySelect]=useState(false)
-  const API_URL=`http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
+  const API_URL=`https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
 
    const onChange = (e)=>{
     setInput(e.target.value);

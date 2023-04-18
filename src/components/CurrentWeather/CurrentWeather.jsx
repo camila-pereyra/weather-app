@@ -32,7 +32,7 @@ const CurrentWeather = ({lat,lon}) => {
       setTemp(data.main.temp)
       setHumidity(data.main.humidity)
       setSensationTer(data.main.feels_like)
-      setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`)
+      setWeatherIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`)
       setVisibility((data.visibility/1000).toFixed(0))
       setWind((data.wind.speed*3.6).toFixed(2))
     })))
