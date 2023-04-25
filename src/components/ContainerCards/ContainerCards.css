@@ -1,0 +1,12 @@
+.containerCards{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+.containerName{
+    font-size: 30px;
+    text-decoration: underline;
+}

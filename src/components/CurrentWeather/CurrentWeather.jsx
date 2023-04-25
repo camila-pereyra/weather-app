@@ -4,6 +4,7 @@ import {FaWind} from "react-icons/fa"
 import {MdOutlineVisibility} from "react-icons/md"
 import {CiTempHigh} from "react-icons/ci"
 import {VscPerson} from "react-icons/vsc"
+import {BsFillGeoAltFill} from "react-icons/bs"
 import "./CurrentWeather.css"
 
 const CurrentWeather = ({lat,lon}) => {
@@ -18,14 +19,12 @@ const CurrentWeather = ({lat,lon}) => {
   const [load, setLoad] = useState (false)
 
 
-
-
   const API_url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&&units=metric&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
 
   useEffect(() => {
-    setLoad(true)
+    setLoad(false)
     fetch(API_url)
-    .then(response=>console.log(response.json()
+    .then(response=>response.json())
     .then(data => {
       setCity(data.name)
       setWeatherCondition(data.weather[0].main)
@@ -35,17 +34,16 @@ const CurrentWeather = ({lat,lon}) => {
       setWeatherIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`)
       setVisibility((data.visibility/1000).toFixed(0))
       setWind((data.wind.speed*3.6).toFixed(2))
-    })))
-    setTimeout(()=>setLoad(false),2500) 
- 
+    })
+    setTimeout(() => {
+      setLoad(true)
+    }, 3000);  
   }, [API_url]) 
   
-
   
   return (
-     load ? (<div className="spinner"></div>) :
-    (<div className="currentWeather">
-       <p className="nameCity">{city}</p>
+     load ? (<div className="currentWeather">
+       <p className="nameCity"><BsFillGeoAltFill/>{city}</p>
       <div className="data">
         <div className="dataIcon">
           <img src={weatherIcon} alt="iconWeather" />
@@ -59,7 +57,11 @@ const CurrentWeather = ({lat,lon}) => {
           <div><FaWind/>Wind: {wind} km/h</div>
         </div>        
       </div>
-    </div>) 
+    </div>) : (
+      <div className="containerDenied">
+        <p>Cargando ...</p>
+        <div className="spinner"></div>
+      </div>)
   )
 }
 
