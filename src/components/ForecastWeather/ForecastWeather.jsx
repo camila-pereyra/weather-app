@@ -24,9 +24,9 @@ const ForecastWeather = ({lat,lon}) => {
    load && 
    (<div className="containerForecast">
         <ContainerCards list={listForecastWeather}/>
-        <p>Este proyecto accede a la ubicación del dispositivo y utiliza la API OpenWeatherMap para mostrar datos meteorológicos de la zona correspondiente.</p>
+        <p className="infoProject">Este proyecto accede a la ubicación del dispositivo y utiliza la API OpenWeatherMap para mostrar datos meteorológicos de la zona correspondiente.</p>
         <br></br>
-        <h3>Creado por Camila Pereyra</h3>
+        <h3 className="infoProjectAutor">Creado por Camila Pereyra</h3>
     </div>)
   )
 }

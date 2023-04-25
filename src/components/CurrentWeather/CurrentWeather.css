@@ -55,3 +55,43 @@
     padding: 10px;
     gap: 40px;
 }
+@media (min-width:768px) {
+    .currentWeather{
+        gap: 100px;
+    }
+    .currentWeather .nameCity{
+        font-size: 60px;
+    }
+    .data{
+        width: 100%;
+        flex-direction: row;
+    }
+    .dataIcon{
+        width: 50%;
+        font-size: 30px;
+        border-right: solid 1px;
+        padding: 10px;
+
+    }
+    .dataIcon img{
+        width: 250px;
+        
+    }
+    .dataInfo{
+        width: 50%;
+        font-size: 30px;
+        padding: 10px;
+
+    }
+    
+}
+@media (min-width:1200px) {
+    .dataInfo{
+        font-size: 45px;
+    }
+    .dataIcon{
+        font-size: 45px;
+        border-right: solid 2px;
+    }
+    
+}

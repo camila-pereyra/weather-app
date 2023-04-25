@@ -8,3 +8,28 @@
     align-items: center;
     justify-content: center;
 }
+.infoProject{
+    font-size: 15px;
+
+}
+.infoProjectAutor{
+    font-size: 20px;
+}
+@media (min-width:768px){
+    .infoProject{
+        font-size: 20px;
+
+    }
+    .infoProjectAutor{
+        font-size: 22px;
+    }
+}
+@media (min-width:1200px) {
+    .infoProject{
+        font-size: 25px;
+
+    }
+    .infoProjectAutor{
+        font-size: 28px;
+    }
+}

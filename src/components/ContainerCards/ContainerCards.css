@@ -8,5 +8,10 @@
 }
 .containerName{
     font-size: 30px;
-    text-decoration: underline;
+}
+@media (min-width:768px) {
+    .containerName{
+        font-size: 50px;
+    }
+    
 }

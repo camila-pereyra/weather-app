@@ -20,7 +20,7 @@ const Card = ({dt,temp,icon, main}) => {
   return (
     <div className="card">
       <img className="cardIcon" src={urlIcon} alt="" />
-      <p>{main}</p>
+      <p className="cardMain">{main}</p>
       <p className="cardTemp">Temp: {temp}°C</p>
       <p className="cardDate">{day}/{month}/{year}</p>
       <p className="cardHour">{hour} hs</p>

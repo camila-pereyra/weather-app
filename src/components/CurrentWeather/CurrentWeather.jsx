@@ -17,6 +17,9 @@ const CurrentWeather = ({lat,lon}) => {
   const [humidity,setHumidity]=useState("")
   const [wind,setWind]=useState()
   const [load, setLoad] = useState (false)
+  const [day, setDay]=useState()
+  const [month, setMonth]=useState()
+  const [year, setYear]=useState()
 
 
   const API_url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&&units=metric&appid=e6d11dfe03e86bfc3c6388c5b53db4e9`
@@ -34,6 +37,10 @@ const CurrentWeather = ({lat,lon}) => {
       setWeatherIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`)
       setVisibility((data.visibility/1000).toFixed(0))
       setWind((data.wind.speed*3.6).toFixed(2))
+      const date= new Date ((data.dt * 1000))
+      setDay(date.getUTCDate())
+      setMonth(date.getMonth()+1)
+      setYear(date.getFullYear())
     })
     setTimeout(() => {
       setLoad(true)
@@ -46,6 +53,7 @@ const CurrentWeather = ({lat,lon}) => {
        <p className="nameCity"><BsFillGeoAltFill/>{city}</p>
       <div className="data">
         <div className="dataIcon">
+          <p>{day}/{month}/{year}</p>
           <img src={weatherIcon} alt="iconWeather" />
           <p>{weatherCondition}</p>
         </div>
