@@ -1,7 +1,7 @@
 .card{
-    width: 250px;
-    padding: 0px 10px 30px 10px;
+    width: 200px;
     display: flex;
+    margin: 5px 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -20,9 +20,13 @@
 .cardDate, .cardHour{
     font-size: 20px;
 }
+@media (min-width:576px){
+    .card{
+        width: 250px;
+    }
+}
 @media (min-width:768px) {
     .card{
-        width: 300px;
         justify-content: space-around;
     }
     .cardTemp , .cardDate, .cardHour, .cardMain{

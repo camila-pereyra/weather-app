@@ -12,7 +12,7 @@
 }
 
 .currentWeather .nameCity{
-    font-size: 40px;
+    font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,6 +54,11 @@
     text-align: center;
     padding: 10px;
     gap: 40px;
+}
+@media (min-width:576px){
+    .currentWeather .nameCity{
+        font-size: 40px;
+    }
 }
 @media (min-width:768px) {
     .currentWeather{
