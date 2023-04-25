@@ -1,5 +1,5 @@
 .card{
-    width: 200px;
+    width: 150px;
     display: flex;
     margin: 5px 0;
     flex-direction: column;
@@ -7,7 +7,6 @@
     align-items: center;
     color: white;
 }
-
 .cardIcon{
     width: 50%;
 }
